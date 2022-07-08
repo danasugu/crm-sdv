@@ -97,6 +97,11 @@
                                             {{ trans('cruds.user.title') }}
                                         </a>
                                     @endcan
+                                    @can('team_access')
+                                        <a class="dropdown-item ml-3" href="{{ route('frontend.teams.index') }}">
+                                            {{ trans('cruds.team.title') }}
+                                        </a>
+                                    @endcan
                                     @can('basic_c_r_m_access')
                                         <a class="dropdown-item disabled" href="#">
                                             {{ trans('cruds.basicCRM.title') }}
