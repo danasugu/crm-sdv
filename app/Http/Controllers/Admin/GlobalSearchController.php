@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 class GlobalSearchController extends Controller
 {
     private $models = [
+        'SdVProject' => 'cruds.sdVProject.title',
     ];
 
     public function search(Request $request)
