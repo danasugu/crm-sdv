@@ -51,6 +51,7 @@ class User extends Authenticatable
         'updated_at',
         'deleted_at',
         'two_factor_expires_at',
+        'team_id',
     ];
 
     public function __construct(array $attributes = [])
@@ -154,6 +155,11 @@ class User extends Authenticatable
     public function setTwoFactorExpiresAtAttribute($value)
     {
         $this->attributes['two_factor_expires_at'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
+    }
+
+    public function team()
+    {
+        return $this->belongsTo(Team::class, 'team_id');
     }
 
     protected function serializeDate(DateTimeInterface $date)
